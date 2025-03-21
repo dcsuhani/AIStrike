@@ -28,9 +28,13 @@ This tool can be used for various cybersecurity tasks such as:
 
 - **Logging & Error Handling**:
   - Includes logging for better traceability and error handling.
- 
-- **Usage**:
-  - Command line input:____python main.py -i <domain_or_ip_or_url>
-  - File input:________________python main.py -f <file_name>
 
+## Directory Structure
 
+├── config.py____________________________________# Contains the API keys for VirusTotal and IPinfo <br>
+├── main.py____________________________________             # The main script for running the tool<br>
+├── utils.py____________________________________            # Helper functions for performing lookups and handling data<br>
+├── logs/____________________________________               # Directory for storing log files<br>
+│   └── app.log____________________________________         # Application log file<br>
+├── enriched_data.json____________________________________  # Output file containing enriched data in JSON format<br>
+└── README.md____________________________________           # This readme file
