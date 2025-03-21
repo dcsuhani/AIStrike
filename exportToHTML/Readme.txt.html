@@ -1,0 +1,129 @@
+<html>
+<head>
+<title>Readme.txt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Readme.txt</font>
+</center></td></tr></table>
+<pre><span class="s0">Threat Intelligence Enrichment Tool</span>
+<span class="s0">Overview</span>
+<span class="s0">The Threat Intelligence Enrichment Tool is a Python-based utility that allows users to gather and enrich information about domains, IP addresses, and URLs from external threat intelligence sources like WHOIS, VirusTotal, and IPinfo.</span>
+
+<span class="s0">This tool can be used for various cybersecurity tasks such as investigating suspicious domains, IPs, or URLs, looking up reputation scores, and gathering metadata to help in decision-making.</span>
+
+<span class="s0">Features</span>
+<span class="s0">Perform enrichment using the following data sources:</span>
+
+<span class="s0">WHOIS Lookup: Fetch domain registration details using the whois library.</span>
+<span class="s0">VirusTotal API: Retrieve reputation scores and threat intelligence from VirusTotal.</span>
+<span class="s0">IPinfo API: Get detailed information on IP addresses (geolocation, organization, etc.).</span>
+<span class="s0">Accepts inputs from:</span>
+
+<span class="s0">Text files: A file containing one domain/IP/URL per line.</span>
+<span class="s0">Command-line arguments: For custom domain/IP/URL input.</span>
+<span class="s0">API: Allows enriching a domain/IP/URL via an API.</span>
+<span class="s0">Supports multi-threaded lookups for faster processing of multiple targets.</span>
+
+<span class="s0">Outputs the enriched data in a structured JSON format.</span>
+
+<span class="s0">Includes logging for better traceability and error handling.</span>
+
+<span class="s0">Requirements</span>
+<span class="s0">Python 3.x</span>
+<span class="s0">Install the required Python libraries using pip:</span>
+<span class="s0">bash</span>
+<span class="s0">Copy</span>
+<span class="s0">pip install requests python-whois</span>
+<span class="s0">You will also need to obtain API keys for the external services:</span>
+<span class="s0">VirusTotal API Key: Sign up for VirusTotal API</span>
+<span class="s0">IPinfo API Key: Sign up for IPinfo API</span>
+<span class="s0">File Structure</span>
+<span class="s0">graphql</span>
+<span class="s0">Copy</span>
+<span class="s0">threat-intelligence-enrichment-tool/</span>
+<span class="s0">│</span>
+<span class="s0">├── config.py           # Contains the API keys for VirusTotal and IPinfo</span>
+<span class="s0">├── main.py             # The main script for running the tool</span>
+<span class="s0">├── utils.py            # Helper functions for performing lookups and handling data</span>
+<span class="s0">├── logs/               # Directory for storing log files</span>
+<span class="s0">│   └── app.log         # Application log file</span>
+<span class="s0">├── enriched_data.json  # Output file containing enriched data in JSON format</span>
+<span class="s0">└── README.md           # This readme file</span>
+<span class="s0">Setup</span>
+<span class="s0">API Keys:</span>
+
+<span class="s0">Open config.py and add your VirusTotal and IPinfo API keys in the API_KEYS dictionary. Example:</span>
+<span class="s0">python</span>
+<span class="s0">Copy</span>
+<span class="s0">API_KEYS = {</span>
+    <span class="s0">&quot;virustotal&quot;: &quot;your_virustotal_api_key_here&quot;,</span>
+    <span class="s0">&quot;ipinfo&quot;: &quot;your_ipinfo_api_key_here&quot;</span>
+<span class="s0">}</span>
+<span class="s0">Install Dependencies: Use the following command to install the necessary Python libraries:</span>
+
+<span class="s0">bash</span>
+<span class="s0">Copy</span>
+<span class="s0">pip install -r requirements.txt</span>
+<span class="s0">Or manually install the libraries:</span>
+
+<span class="s0">bash</span>
+<span class="s0">Copy</span>
+<span class="s0">pip install requests python-whois</span>
+<span class="s0">Usage</span>
+<span class="s0">You can run the tool in different ways depending on your input source.</span>
+
+<span class="s0">1. Command-Line Input</span>
+<span class="s0">To provide a single domain/IP/URL for enrichment via command-line arguments, run:</span>
+
+<span class="s0">bash</span>
+<span class="s0">Copy</span>
+<span class="s0">python main.py -i &lt;domain_or_ip&gt;</span>
+<span class="s0">Example:</span>
+
+<span class="s0">bash</span>
+<span class="s0">Copy</span>
+<span class="s0">python main.py -i example.com</span>
+<span class="s0">2. File Input</span>
+<span class="s0">To use a file containing a list of domains/IPs/URLs (one per line), run:</span>
+
+<span class="s0">bash</span>
+<span class="s0">Copy</span>
+<span class="s0">python main.py -f &lt;file_path&gt;</span>
+<span class="s0">Example:</span>
+
+<span class="s0">bash</span>
+<span class="s0">Copy</span>
+<span class="s0">python main.py -f targets.txt</span>
+<span class="s0">3. API Lookup</span>
+<span class="s0">You can enable API-based lookup by providing the -a flag:</span>
+
+<span class="s0">bash</span>
+<span class="s0">Copy</span>
+<span class="s0">python main.py -a</span>
+<span class="s0">Output</span>
+<span class="s0">The enriched data will be saved as a JSON file called enriched_data.json in the current directory.</span>
+
+<span class="s0">Logging</span>
+<span class="s0">Logs are saved in the logs/app.log file. You can check this file to see detailed information about the operations, including any errors or warnings.</span>
+
+<span class="s0">Example</span>
+<span class="s0">Here's an example of how the tool enriches a single target (example.com):</span>
+
+<span class="s0">bash</span>
+<span class="s0">Copy</span>
+<span class="s0">python main.py -i example.com</span>
+<span class="s0">This will:</span>
+
+<span class="s0">Perform a WHOIS lookup on example.com.</span>
+<span class="s0">Fetch the reputation score and details from VirusTotal.</span>
+<span class="s0">Fetch IPinfo details (if applicable).</span>
+<span class="s0">The results will be saved to enriched_data.json.</span></pre>
+</body>
+</html>
