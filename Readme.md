@@ -28,10 +28,9 @@ This tool can be used for various cybersecurity tasks such as:
 
 - **Logging & Error Handling**:
   - Includes logging for better traceability and error handling.
+ 
+- **Usage**:
+  - Command line input:____python main.py -i <domain_or_ip_or_url>
+  - File input:________________python main.py -f <file_name>
 
-## Requirements
 
-- **Python 3.x**
-- Required Python libraries:
-  ```bash
-  pip install requests python-whois
